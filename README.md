@@ -12,8 +12,8 @@ Debugging a drag and drop puzzle game.
 - JavaScript for the drag and drop functions
 ```
 ## :space_invader: Bug Fixes :space_invader:
-###Problem:
+### Problem:
 	Pieces appear in the drop zones on reset.
-###Fix:
+### Fix:
 	Iterate through each dropzone and replace the contents with an empty string upon execution of resetPuzzlePieces function.
 
