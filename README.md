@@ -1,20 +1,19 @@
-# Practice for an Amazing Music Mixer
+# D & D Puzzle
 
+Debugging a drag and drop puzzle game.
+<hr>
 
-~ Activity Log ~
+</p>
 
-01/28/19 - 2:29pm -> firstCommit
+## Built With: 
 
-Folder structure created. First commit.
+```
+- HTML and CSS
+- JavaScript for the drag and drop functions
+```
+## :space_invader: Bug Fixes :space_invader:
+###Problem:
+	Pieces appear in the drop zones on reset.
+###Fix:
+	Iterate through each dropzone and replace the contents with an empty string upon execution of resetPuzzlePieces function.
 
-2:34pm -> des.kc.assets
-
-Added web assets.
-
-3:11pm -> dev.kc.initialJS
-
-Added some JS to change headers.
-
-4:30pm -> dev.kc.JS
-
-Generate puzzle pieces function added.
