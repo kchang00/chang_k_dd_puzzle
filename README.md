@@ -13,7 +13,7 @@ Debugging a drag and drop puzzle game.
 ```
 ## :space_invader: Bug Fixes :space_invader:
 ###Problem:
-	Pieces appear in the drop zones on reset.
+	Multiple pieces can be dropped into one zone. This breaks the game.
 ###Fix:
-	Iterate through each dropzone and replace the contents with an empty string upon execution of resetPuzzlePieces function.
+	For the drop function for each dropzone, check if the zone has a child (a previous piece). If so, reinstate the default. Else, append the child (the next piece) to the zone.
 

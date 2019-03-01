@@ -49,6 +49,8 @@
 
 	// handle dragover and drop
 	
+	// (e) is short for event = function passed to event handlers
+
 	dropZones.forEach(zone => {
 		zone.addEventListener('dragover', function(e) {
 			e.preventDefault();
@@ -56,13 +58,21 @@
 		});
 
 		zone.addEventListener('drop', function(e) {
+			let piece = e.dataTransfer.getData('text/plain');
+
 			e.preventDefault();
 			console.log('Whew. Thanks for the piece =^_^=');
 
-			let piece = e.dataTransfer.getData('text/plain');
-			e.target.appendChild(document.querySelector(`#${piece}`));
+			// if zone has a child, reinstate the default
+			if (zone.firstChild){
+				return false;
+			}
+			else {
+				e.target.appendChild(document.querySelector(`#${piece}`));
+			}
 		});
 	});
+
 
 	function resetPuzzlePieces() {
 		// swap out all of the images when clicking on a bottom button
@@ -76,12 +86,12 @@
 		// dropZones.forEach(puzzleZone => { 
 		// 	puzzleZone.removeChild(".puzzle-image"); 
 		// });
-		
+
+		// 	removes DOM elements by replacing them with an empty string
 		dropZones.forEach(puzzleZone => { 
 			puzzleZone.innerHTML = " "; 
 		});
 
-	// 	removes DOM elements by replacing them with an empty string
 		piecesBoard.innerHTML = " ";
 		createPuzzlePieces(this.dataset.puzzleref);
 	}
