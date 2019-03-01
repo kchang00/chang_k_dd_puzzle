@@ -13,9 +13,9 @@ Debugging a drag and drop puzzle game.
 ```
 ## :space_invader: Bug Fixes :space_invader:
 
-###Problem 1:
+### Problem 1:
 	Multiple pieces can be dropped into one zone. This breaks the game.
-###Fix 1:
+### Fix 1:
 	For the drop function for each dropzone, check if the zone has a child (a previous piece). If so, reinstate the default. Else, append the child (the next piece) to the zone.
 
 ### Problem 2:
