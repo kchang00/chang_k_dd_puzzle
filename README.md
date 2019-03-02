@@ -15,8 +15,9 @@ Debugging a drag and drop puzzle game.
 
 ### Problem 1:
 	Multiple pieces can be dropped into one zone. This breaks the game.
+
 ### Fix 1:
-	For the drop function for each dropzone, check if the zone has a child (a previous piece). If so, reinstate the default. Else, append the child (the next piece) to the zone.
+	For the drop function for each dropzone, check if the zone is empty (if a child doesn't exist). If so, enable drop and append a child (the next piece) to the zone. Else (if the child exists), return to the default values and do not allow drop.
 
 ### Problem 2:
 	Pieces appear in the drop zones on reset.

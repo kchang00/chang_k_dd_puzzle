@@ -60,15 +60,25 @@
 		zone.addEventListener('drop', function(e) {
 			let piece = e.dataTransfer.getData('text/plain');
 
-			e.preventDefault();
-			console.log('Whew. Thanks for the piece =^_^=');
-
 			// if zone has a child, reinstate the default
-			if (zone.firstChild){
-				return false;
+			// while (true) {
+			// 	if (zone.firstChild) {
+			// 		return false;
+			// 	}
+			// 	else {
+			// 		e.target.appendChild(document.querySelector(`#${piece}`));
+			// 		console.log('Whew. Thanks for the piece =^_^=');
+			// 	}
+			// }
+
+			// if zone is empty, enable drop. otherwise, keep default options
+			if (zone.firstChild == null) {
+				e.preventDefault();
+				e.target.appendChild(document.querySelector(`#${piece}`));
+				console.log('Whew. Thanks for the piece =^_^=');
 			}
 			else {
-				e.target.appendChild(document.querySelector(`#${piece}`));
+				return false;
 			}
 		});
 	});
@@ -88,8 +98,13 @@
 		// });
 
 		// 	removes DOM elements by replacing them with an empty string
+		// dropZones.forEach(puzzleZone => { 
+		// 	puzzleZone.innerHTML = " "; 
+		// });
+
+		// 	removes DOM elements by replacing them with null value. ! the drop handling listens for a null value! puzzleZone.innerHTML must be replaced with null.
 		dropZones.forEach(puzzleZone => { 
-			puzzleZone.innerHTML = " "; 
+			puzzleZone.innerHTML = null; 
 		});
 
 		piecesBoard.innerHTML = " ";
